@@ -22,12 +22,27 @@ function generatePhoneNumber(array) {
   }
   return phoneNumber;
 }
-// console.log(generatePhoneNumber([2, 3, 3, 6, 5, 6, 7, 8, 9, 0, 1]))
-// Desafio 12
-function triangleCheck() {
-  // seu código aqui
-}
 
+// Desafio 12
+function triangleCheck(lineA, lineB, lineC) {
+  // seu código aqui
+  let triangle = true;
+  let somaAB = lineA + lineB;
+  let somaAC = lineA + lineC;
+  let somaBC = lineB + lineC;
+  let valorAbsAB = Math.abs(lineA - lineB);
+  let valorAbsAC = Math.abs(lineA - lineC);
+  let valorAbsBC = Math.abs(lineB - lineC);
+  if((lineA < somaBC && lineA > valorAbsBC) || (lineB < somaAC && lineB > valorAbsAC) || (lineC < somaAB && lineC > valorAbsAB)){
+    return triangle;
+  }else if(lineA > somaBC || lineB > somaAC || lineC > somaAB) {
+    triangle = false;
+  }else if(lineA < valorAbsBC || lineB < valorAbsAC || lineC < valorAbsAB) {
+    triangle = false;
+  }
+  return triangle;
+}
+console.log(triangleCheck(12, 17, 4))
 // Desafio 13
 function hydrate() {
   // seu código aqui
