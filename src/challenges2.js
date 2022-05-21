@@ -42,12 +42,30 @@ function triangleCheck(lineA, lineB, lineC) {
   }
   return triangle;
 }
-console.log(triangleCheck(12, 17, 4))
+// console.log(triangleCheck(12, 17, 4))
 // Desafio 13
-function hydrate() {
+function hydrate(string) {
   // seu código aqui
+  let numbers = /\d+/g;
+  let stringNumbers = string.match(numbers);
+  let arrayNumbers = [];
+  let sumNumbers = 0;
+  let resultado;
+  for(let i = 0; i < stringNumbers.length; i += 1){
+    arrayNumbers.push(parseInt(stringNumbers[i]));
+  }
+  for(let j = 0; j < arrayNumbers.length; j += 1){
+    sumNumbers += arrayNumbers[j];
+  }
+  if(sumNumbers > 1){
+    resultado = sumNumbers + ' copos de água';
+  }else{
+    resultado = sumNumbers + ' copo de água';
+  }
+  
+  return resultado;
 }
-
+console.log(hydrate('1 cerveja'))
 module.exports = {
   generatePhoneNumber,
   hydrate,
